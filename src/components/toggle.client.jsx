@@ -9,7 +9,7 @@ export default function Toggle(props) {
           {open ? '[-]' : '[+] comments collapsed'}
         </a>
       </div>
-      <ul class="comment-children" style={{ display: open ? 'block' : 'none' }}>
+      <ul className="comment-children" style={{ display: open ? 'block' : 'none' }}>
         {props.children}
       </ul>
     </>

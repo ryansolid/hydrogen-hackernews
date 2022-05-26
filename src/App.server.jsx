@@ -7,8 +7,8 @@ function App({ routes }) {
   return (
     <Suspense fallback={null}>
       <ShopifyProvider>
-        <Nav />
         <Router>
+          <Nav />
           <FileRoutes routes={routes} />
         </Router>
       </ShopifyProvider>

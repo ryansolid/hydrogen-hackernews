@@ -1,0 +1,12 @@
+import { fetchSync } from '@shopify/hydrogen';
+
+const story = (path: string) => `https://node-hnapi.herokuapp.com/${path}`;
+const user = (path: string) =>
+  `https://hacker-news.firebaseio.com/v0/${path}.json`;
+
+export default function fetchAPI(path: string) {
+  const url = path.startsWith('user') ? user(path) : story(path);
+  const headers = { 'User-Agent': 'chrome' };
+
+  return fetchSync(url, { headers }).json();
+}

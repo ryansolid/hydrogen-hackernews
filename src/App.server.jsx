@@ -1,18 +1,16 @@
-import renderHydrogen from '@shopify/hydrogen/entry-server';
-import { Router, FileRoutes, ShopifyProvider } from '@shopify/hydrogen';
-import { Suspense } from 'react';
-import Nav from './components/nav.server';
+import renderHydrogen from "@shopify/hydrogen/entry-server";
+import { Router, FileRoutes } from "@shopify/hydrogen";
+import { Suspense } from "react";
+import Nav from "./components/nav.server";
 
 function App({ routes }) {
   return (
-    <Suspense fallback={null}>
-      <ShopifyProvider>
-        <Router>
-          <Nav />
-          <FileRoutes routes={routes} />
-        </Router>
-      </ShopifyProvider>
-    </Suspense>
+    <Router>
+      <Nav />
+      <Suspense fallback={<div class="news-list-nav">Loading...</div>}>
+        <FileRoutes routes={routes} />
+      </Suspense>
+    </Router>
   );
 }
 

@@ -21,7 +21,7 @@ function Nav() {
         </Link>
         <a
           className="github"
-          href="https://remix.run"
+          href="https://hydrogen.shopify.dev/"
           target="_blank"
           rel="noreferrer"
         >

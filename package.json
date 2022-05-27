@@ -6,10 +6,12 @@
   "private": true,
   "scripts": {
     "dev": "cross-env LOCAL_DEV=true shopify hydrogen dev",
-    "build": "shopify hydrogen build",
-    "preview": "shopify hydrogen preview"
+    "build": "npm run build:client && npm run build:ssr",
+    "build:client": "vite build --outDir dist/client --manifest",
+    "build:ssr": "cross-env WORKER=true vite build --ssr @netlify/hydrogen-platform/handler"
   },
   "devDependencies": {
+    "@netlify/hydrogen-platform": "^0.0.2",
     "@shopify/cli": "1.0.9",
     "@shopify/cli-hydrogen": "2.0.0",
     "vite": "^2.9.0"
